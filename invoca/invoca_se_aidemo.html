@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047) -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoca - AI that connects online marketing to offline revenue</title>
+    <style>
+        :root {
+            --invoca-green: #00b388;
+            --invoca-dark-green: #0d2b24;
+            --invoca-light-green: #c7f0e5;
+            --invoca-deep-blue: #0f4c66;
+            --text-dark: #212121;
+            --text-medium: #555;
+            --text-light: #fff;
+            --background-light: #fff;
+            --border-color: #e0e0e0;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* --- Top Bar --- */
+        .top-bar {
+            background-color: var(--invoca-dark-green);
+            color: var(--text-light);
+            padding: 12px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-bar p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .top-bar .reserve-btn {
+            background-color: var(--invoca-light-green);
+            color: var(--invoca-dark-green);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* --- Main Header --- */
+        .main-header {
+            background-color: var(--background-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            width: 90px;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .main-nav a .icon-chevron {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+
+        .header-right a, .header-right span {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .header-right .icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .header-right .icon-chevron {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: var(--invoca-green);
+            color: var(--text-light);
+        }
+        
+        .btn-primary:hover {
+            background-color: #009a73;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 auto 24px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-medium);
+            margin: 0 auto 32px;
+            max-width: 700px;
+        }
+
+        .hero .btn-primary {
+            font-size: 18px;
+            padding: 16px 32px;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding-bottom: 80px;
+        }
+        
+        .feature-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .feature-tab {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-medium);
+            cursor: pointer;
+            padding-bottom: 12px;
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+        
+        .feature-tab.active {
+            color: var(--invoca-green);
+        }
+        
+        .feature-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--invoca-green);
+        }
+
+        .pause-icon {
+            width: 32px;
+            height: 32px;
+            color: #ccc;
+        }
+
+        .feature-content {
+            display: grid;
+            grid-template-columns: 1fr 580px 1fr;
+            gap: 24px;
+            align-items: stretch;
+            height: 480px;
+        }
+
+        .card {
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card.left {
+            background-image: url('https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-position: left center;
+        }
+        .card.left::after {
+            background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0, 179, 136, 0.4));
+        }
+
+        .card.right {
+            background-image: url('https://images.pexels.com/photos/7645399/pexels-photo-7645399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-position: right center;
+        }
+        .card.right::after {
+             background: linear-gradient(to left, rgba(0,0,0,0.2), rgba(90, 80, 150, 0.4));
+        }
+
+        .card.center {
+            background-image: url('https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            color: var(--text-light);
+        }
+        
+        .card.center::after {
+            background-color: var(--invoca-deep-blue);
+            opacity: 0.95;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .center-card-header .tag {
+            background-color: rgba(13, 43, 36, 0.5);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .center-card-header h3 {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0;
+            max-width: 400px;
+        }
+
+        .ai-signals-card {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 320px;
+            background-color: var(--background-light);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+            color: var(--text-dark);
+        }
+        
+        .ai-signals-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .ai-signals-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .ai-signals-header .icon-kebab {
+            width: 20px;
+            height: 20px;
+            color: var(--text-medium);
+        }
+        
+        .ai-signals-body {
+            padding: 20px;
+        }
+        
+        .ai-signals-body p {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-medium);
+            letter-spacing: 0.5px;
+            margin: 0 0 16px 0;
+        }
+        
+        .ai-signals-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .ai-signals-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+        
+        .ai-signals-list .icon-check {
+            width: 20px;
+            height: 20px;
+            color: var(--invoca-green);
+            flex-shrink: 0;
+        }
+        
+        .ai-signals-list strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+    </style>
+<style>    @keyframes bounce {      30% {        transform: translateY(0%);      }      40% {        transform: translateY(-5%);      }      50% {        transform: translateY(-10%);      }      60% {        transform: translateY(-5%);      }      70% {        transform: translateY(0%);      }    }    @keyframes spin {      0% { transform: rotate(0deg); }      100% { transform: rotate(360deg); }    }    .vapi-btn {      border-radius: 50%;      min-width: 50px;      height: 50px;      color: white;      border: none;      cursor: pointer;      transition: all 0.3s ease-in-out;      display: flex;      text-align: left;      align-items: center;      position: absolute;      padding: 0;      animation: bounce 2s ease-in-out infinite;      bottom: 40px; left: 50%; margin-left: -25px;    }    .vapi-btn-round {      justify-content: center;    }    .vapi-btn-pill {      border-radius: 8px;      color: black;      background: white;      justify-content: flex-start;      padding: 0px 10px;    }    .vapi-btn:hover {      animation: none;      transform: translateY(-5px);    }    #vapi-icon-container {      padding: 5px;      margin: 5px;      border-radius: 5px;    }    #vapi-title-container {      padding: 5px 10px;    }    #vapi-title {      font-size: 1.1em;    }    #vapi-subtitle {      font-size: 0.9em;    }    .vapi-btn-is-loading > #vapi-icon-container > img {      animation: spin 1s linear infinite;    }    .vapi-btn-is-active {      background: rgb(255, 0, 0);      box-shadow: 1px 1px 80px 20px rgb(255, 0, 0);    }    .vapi-btn-pill.vapi-btn-is-active {      background: white;    }    .vapi-btn-pill.vapi-btn-is-active > #vapi-icon-container {      background: rgb(255, 0, 0);    }    .vapi-btn-is-idle {      background: rgb(93, 254, 202);      box-shadow: 1px 1px 10px rgb(93, 254, 202);    }    .vapi-btn-pill.vapi-btn-is-idle {      background: white;    }    .vapi-btn-pill.vapi-btn-is-idle > #vapi-icon-container {      background: rgb(93, 254, 202);    }    .vapi-btn-is-loading {      background: rgb(93, 124, 202);      box-shadow: 1px 1px 80px 20px rgb(93, 124, 202);    }    .vapi-btn-pill.vapi-btn-is-loading {      background: white;    }    .vapi-btn-pill.vapi-btn-is-loading > #vapi-icon-container {      background: rgb(93, 124, 202);    }    .vapi-btn-is-speaking {      // Add speaking styles if different from active/loading/idle    }    @font-face {      font-family: 'LucideIcons';      src: url(https://unpkg.com/lucide-static@latest/font/Lucide.ttf) format('truetype');    }        .vapi-btn-volume-0 {        box-shadow: 1px 1px 5px 0px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-1 {        box-shadow: 1px 1px 7px 2px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-2 {        box-shadow: 1px 1px 9px 4px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-3 {        box-shadow: 1px 1px 11px 6px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-4 {        box-shadow: 1px 1px 13px 8px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-5 {        box-shadow: 1px 1px 15px 10px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-6 {        box-shadow: 1px 1px 17px 12px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-7 {        box-shadow: 1px 1px 19px 14px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-8 {        box-shadow: 1px 1px 21px 16px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-9 {        box-shadow: 1px 1px 23px 18px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }    <br>      .vapi-btn-volume-10 {<br>        box-shadow: 1px 1px 25px 20px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);<br>      }<br>    </style><style>    @keyframes bounce {      30% {        transform: translateY(0%);      }      40% {        transform: translateY(-5%);      }      50% {        transform: translateY(-10%);      }      60% {        transform: translateY(-5%);      }      70% {        transform: translateY(0%);      }    }    @keyframes spin {      0% { transform: rotate(0deg); }      100% { transform: rotate(360deg); }    }    .vapi-btn {      border-radius: 50%;      min-width: 50px;      height: 50px;      color: white;      border: none;      cursor: pointer;      transition: all 0.3s ease-in-out;      display: flex;      text-align: left;      align-items: center;      position: absolute;      padding: 0;      animation: bounce 2s ease-in-out infinite;      bottom: 40px; left: 50%; margin-left: -25px;    }    .vapi-btn-round {      justify-content: center;    }    .vapi-btn-pill {      border-radius: 8px;      color: black;      background: white;      justify-content: flex-start;      padding: 0px 10px;    }    .vapi-btn:hover {      animation: none;      transform: translateY(-5px);    }    #vapi-icon-container {      padding: 5px;      margin: 5px;      border-radius: 5px;    }    #vapi-title-container {      padding: 5px 10px;    }    #vapi-title {      font-size: 1.1em;    }    #vapi-subtitle {      font-size: 0.9em;    }    .vapi-btn-is-loading > #vapi-icon-container > img {      animation: spin 1s linear infinite;    }    .vapi-btn-is-active {      background: rgb(255, 0, 0);      box-shadow: 1px 1px 80px 20px rgb(255, 0, 0);    }    .vapi-btn-pill.vapi-btn-is-active {      background: white;    }    .vapi-btn-pill.vapi-btn-is-active > #vapi-icon-container {      background: rgb(255, 0, 0);    }    .vapi-btn-is-idle {      background: rgb(93, 254, 202);      box-shadow: 1px 1px 10px rgb(93, 254, 202);    }    .vapi-btn-pill.vapi-btn-is-idle {      background: white;    }    .vapi-btn-pill.vapi-btn-is-idle > #vapi-icon-container {      background: rgb(93, 254, 202);    }    .vapi-btn-is-loading {      background: rgb(93, 124, 202);      box-shadow: 1px 1px 80px 20px rgb(93, 124, 202);    }    .vapi-btn-pill.vapi-btn-is-loading {      background: white;    }    .vapi-btn-pill.vapi-btn-is-loading > #vapi-icon-container {      background: rgb(93, 124, 202);    }    .vapi-btn-is-speaking {      // Add speaking styles if different from active/loading/idle    }    @font-face {      font-family: 'LucideIcons';      src: url(https://unpkg.com/lucide-static@latest/font/Lucide.ttf) format('truetype');    }        .vapi-btn-volume-0 {        box-shadow: 1px 1px 5px 0px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-1 {        box-shadow: 1px 1px 7px 2px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-2 {        box-shadow: 1px 1px 9px 4px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-3 {        box-shadow: 1px 1px 11px 6px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-4 {        box-shadow: 1px 1px 13px 8px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-5 {        box-shadow: 1px 1px 15px 10px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-6 {        box-shadow: 1px 1px 17px 12px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-7 {        box-shadow: 1px 1px 19px 14px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-8 {        box-shadow: 1px 1px 21px 16px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }          .vapi-btn-volume-9 {        box-shadow: 1px 1px 23px 18px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);      }    <br>      .vapi-btn-volume-10 {<br>        box-shadow: 1px 1px 25px 20px rgb(255, 0, 0), inset 0px 0px 10px 0px rgba(0,0,0,0.1);<br>      }<br>    </style></head>
+<body>
+
+    <!-- Embedded SVG Icons -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></symbol>
+            <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20z"></path><path d="M2 12h20"></path></symbol>
+            <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></symbol>
+            <symbol id="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M10 21a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0v16a1 1 0 0 1-1 1zm4 0a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0v16a1 1 0 0 1-1 1z"></path></symbol>
+            <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></symbol>
+            <symbol id="icon-kebab-menu" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></symbol>
+        </defs>
+    </svg>
+
+    <header class="top-bar">
+        <div class="container">
+            <p>Join The Leaders Redefining Revenue at the New York Revenue Leadership Summit</p>
+            <button class="reserve-btn">Reserve Your Spot</button>
+        </div>
+    </header>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-left">
+                <img src="https://awsmp-logos.s3.amazonaws.com/seller-ufrsw2v3whr44/a2a23ba9738c59ed338cdd79eb3ca05e.png" width="150" height="72">
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Product <svg class="icon-chevron"><use href="#icon-chevron-down"></use></svg></a></li>
+                        <li><a href="#">Solutions <svg class="icon-chevron"><use href="#icon-chevron-down"></use></svg></a></li>
+                        <li><a href="#">Customers</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Resources <svg class="icon-chevron"><use href="#icon-chevron-down"></use></svg></a></li>
+                        <li><a href="#">Company <svg class="icon-chevron"><use href="#icon-chevron-down"></use></svg></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <span>+1 (855) call-dmitry</span>
+                <a href="#">
+                    <svg class="icon"><use href="#icon-globe"></use></svg>
+                    United States
+                    <svg class="icon-chevron"><use href="#icon-chevron-down"></use></svg>
+                </a>
+                <a href="f#">
+                    <svg class="icon"><use href="#icon-user"></use></svg>
+                    Login
+                </a>
+                <a href="#" class="btn btn-primary">Book a demo ›</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>AI that connects online marketing to offline revenue</h1>
+                <p>Connect your marketing spend with the revenue it drives and optimize every touchpoint in the buyer journey with best-in-class AI.</p>
+                
+            </div>
+        </section>
+
+        
+    </main>
+ <script src="./code-2_files/index.js" defer="" async=""></script><script src="./code-2_files/index(1).js" defer="" async=""></script><script>
+  var vapiInstance = null;
+  const assistant = "200f3b90-f3ea-4082-be37-734d3eab57f4"; 
+  const apiKey = "01aae61f-7218-4073-8eea-1e9bcfca25b9"; 
+  const buttonConfig = {}; // Modify this as required
+
+  (function (d, t) {
+    var g = document.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    g.src =
+      "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
+
+    g.onload = function () {
+      vapiInstance = window.vapiSDK.run({
+        apiKey: apiKey, // mandatory
+        assistant: assistant, // mandatory
+        config: buttonConfig, // optional
+      });
+    };
+  })(document, "script");
+</script>
+
+</body></html>
